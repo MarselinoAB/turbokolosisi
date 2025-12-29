@@ -1,6 +1,4 @@
-# Mengabaikan virtual environment
 venv/
 
-# Mengabaikan cache Python
 **/__pycache__/
 *.py[cod]
