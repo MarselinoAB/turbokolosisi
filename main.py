@@ -7,9 +7,7 @@ import numpy as np
 import os
 
 # --- BAGIAN 1: PENGATURAN LOKASI MODEL ---
-# Kita gunakan Absolute Path agar file .h5 pasti ketemu
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-# Pastikan nama file di folder model adalah 'model_tbc_final.h5'
 MODEL_PATH = os.path.join(BASE_DIR, "model", "model_tbc_final.h5")
 
 print("="*50)
@@ -58,9 +56,6 @@ async def predict(file: UploadFile = File(...)):
         score = float(prediction[0][0])
         
         # --- PERBAIKAN LOGIKA (DIBALIK) ---
-        # Berdasarkan tes tadi: Skor 99% dianggap Normal padahal gambar TBC.
-        # Artinya Logika Lama Terbalik.
-        # KITA TUKAR POSISINYA SEKARANG:
         
         if score > 0.5:
             # Jika skor tinggi, berarti Normal (Sehat)
